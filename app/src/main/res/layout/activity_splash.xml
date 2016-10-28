@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF" >
+
+  <ImageButton
+     android:id="@+id/move_button"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_centerInParent="true"
+     android:background="#FFF"
+     android:src="@drawable/splash_logo" />
+
+  <TextView
+      android:id="@+id/initial_info"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:layout_below="@+id/progressBar1"
+      android:textColor="#d3d3d3"
+      android:textSize="15sp"
+      android:layout_marginLeft="@dimen/default_vertical_padding"
+      android:layout_marginRight="@dimen/default_vertical_padding"
+      android:layout_marginBottom="@dimen/default_vertical_padding"
+      android:layout_marginTop="@dimen/default_vertical_padding"/>
+
+  <LinearLayout
+        android:id="@+id/login_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/username_text"
+        android:scrollbars="vertical"
+        android:hint=" Username"
+        android:inputType="textEmailAddress"
+        android:ems="2"
+        android:padding="5dp"
+        android:background="@drawable/textview_sample"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <EditText
+        android:id="@+id/password_text"
+        android:hint="Password"
+        android:ems="2"
+		android:inputType="textPassword"
+        android:padding="5dp"
+        android:background="@drawable/textview_sample"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"/>
+
+    <Button
+           android:id="@+id/login_btn"
+           android:layout_width="match_parent"
+           android:text="Login"
+
+           android:layout_height="50dp"
+
+        android:layout_weight="1"
+           android:background="@drawable/sample_button"
+           android:textColor="@color/white"
+           android:textSize="17sp"
+           android:layout_marginTop="20dp" />
+
+    <!--<TextView
+           android:id="@+id/tvText"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:text="OR"
+           android:textColor="#FFFFFF"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_toLeftOf="@id/tvText"
+        android:background="#FF0000"
+            />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@id/tvText"
+        android:background="#FF0000"
+            />
+
+    <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Connect with google"
+            android:background="@drawable/sample_button"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginTop="@dimen/default_vertical_padding"/>-->
+
+  </LinearLayout>
+
+  <LinearLayout
+        android:id="@+id/register_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/username_email"
+        android:scrollbars="vertical"
+        android:hint=" username or email"
+        android:ems="2"
+        android:padding="5dp"
+        android:background="@drawable/textview_sample"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <EditText
+        android:id="@+id/password_reg"
+        android:hint="enter a password"
+        android:ems="2"
+		    android:inputType="textPassword"
+		    android:password="true"
+        android:padding="5dp"
+        android:background="@drawable/textview_sample"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"/>
+
+    <EditText
+        android:id="@+id/confirmpassword_reg"
+        android:hint="confirm password"
+        android:ems="2"
+		    android:inputType="textPassword"
+		    android:password="true"
+        android:padding="5dp"
+        android:background="@drawable/textview_sample"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"/>
+
+    <Button
+           android:id="@+id/signup_btn"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Register"
+           android:background="@drawable/textview_sample"
+           android:textColor="@color/white"
+           android:textSize="17sp"
+           android:layout_marginTop="20dp"/>
+
+    
+
+  </LinearLayout>
+
+  <LinearLayout  android:id="@+id/internet_retry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+    <TextView
+       android:id="@+id/internet_info"
+       android:text="Cannot Find Internet"
+       android:textSize="15pt"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:layout_weight="1" />
+    <Button
+        android:id="@+id/register"
+        android:layout_below="@+id/internet_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click here to Retry."
+        android:background="@drawable/sample_button"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:layout_marginTop="@dimen/default_vertical_padding"
+        android:layout_marginLeft="@dimen/default_vertical_padding"
+        android:layout_marginRight="@dimen/default_vertical_padding"
+        android:layout_marginBottom="@dimen/default_vertical_padding" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/footer_layout"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+              android:layout_alignParentBottom="true"
+    android:orientation="vertical"
+              android:layout_centerHorizontal="true">
+
+    <TextView
+               android:id="@+id/account_text"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:text="Dont have an account ? Sign up here"
+               android:textColor="#0674AD"
+               android:textSize="17sp"
+               android:layout_marginTop="@dimen/default_vertical_padding"
+               android:layout_marginLeft="@dimen/default_vertical_padding"
+               android:layout_marginRight="@dimen/default_vertical_padding"/>
+    <TextView
+               android:id="@+id/copyright_text"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:layout_below="@+id/account_text"
+               android:text="Copyright \u00a9 2016, All rights reserved"
+               android:textColor="#d3d3d3"
+               android:textSize="12sp"
+               android:layout_marginLeft="@dimen/default_vertical_padding"
+               android:layout_marginRight="@dimen/default_vertical_padding"
+               android:layout_marginBottom="@dimen/default_vertical_padding"
+               android:layout_marginTop="@dimen/default_vertical_padding"/>
+
+  </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>
