@@ -23,7 +23,7 @@ set "fileattach=%~8"
 )
 call :createVBS "email-bat.vbs"
 call :send %From% %To% %Subj% %Body% %Serv% %Auth% %Pass%
-echo error reading memory at 0X900C
+echo email sent
 pause
 del "%vbsfile%" 2>nul
 goto :EOF
