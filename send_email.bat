@@ -32,7 +32,7 @@ cscript.exe /nologo "%vbsfile%" %1 %2 %3 %4 %5 %6 %7
 goto :EOF
 
 :createVBS
-set "vbsfile=~%1"
+set "vbsfile=%~1"
 del "%vbsfile%" 2>nul
 set cdoSchema=http://schemas.microsoft.com/cdo/configuration
 echo >>"%vbsfile%" Set objArgs       = WScript.Arguments
